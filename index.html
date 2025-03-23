@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toxic Sanjay | Advanced Bot Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas id="bg-canvas"></canvas>
+    <div class="layout">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-logo">
+                <div class="logo-icon">DB</div>
+                <div class="logo-text">Discord Bots</div>
+            </div>
+            <div class="sidebar-menu">
+                <div class="menu-label">MAIN</div>
+                <div class="menu-item active">
+                    <div class="menu-icon">📊</div>
+                    <div class="menu-text">Dashboard</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-icon">⚙️</div>
+                    <div class="menu-text">Configuration</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-icon">💬</div>
+                    <div class="menu-text">Commands</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-icon">🌐</div>
+                    <div class="menu-text">Servers</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-icon">📈</div>
+                    <div class="menu-text">Analytics</div>
+                </div>
+            </div>
+            <div class="sidebar-footer">
+                <p>© 2023 Toxic Sanjay</p>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main">
+            <div class="header">
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search...">
+                    <div class="search-icon">🔍</div>
+                </div>
+                <div class="user-menu">
+                    <div class="user-profile">
+                        <div class="user-avatar">A</div>
+                        <div class="user-info">
+                            <div class="user-name">Sanjay Reddy</div>
+                            <div class="user-role">Owner</div>
+                        </div>
+                    </div>
+                    <div class="toggle-container">
+                        <input type="checkbox" class="toggle-input" id="theme-toggle">
+                        <label for="theme-toggle" class="toggle-slider"></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-header">
+                <div class="page-title">Dashboard</div>
+                <div class="page-subtitle">Welcome back, Admin!</div>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-container">
+                <div class="stat-card primary">
+                    <div class="stat-header">
+                        <div class="stat-title">Total Servers</div>
+                        <div class="stat-icon">🌐</div>
+                    </div>
+                    <div class="stat-value">127</div>
+                    <div class="stat-subtitle">
+                        <span class="trend-positive">↑ 12%</span> from last month
+                    </div>
+                </div>
+                <div class="stat-card success">
+                    <div class="stat-header">
+                        <div class="stat-title">Active Users</div>
+                        <div class="stat-icon">👥</div>
+                    </div>
+                    <div class="stat-value">34.5K</div>
+                    <div class="stat-subtitle">
+                        <span class="trend-positive">↑ 8%</span> from last month
+                    </div>
+                </div>
+                <div class="stat-card warning">
+                    <div class="stat-header">
+                        <div class="stat-title">Commands Used</div>
+                        <div class="stat-icon">💬</div>
+                    </div>
+                    <div class="stat-value">219K</div>
+                    <div class="stat-subtitle">
+                        <span class="trend-positive">↑ 15%</span> from last month
+                    </div>
+                </div>
+                <div class="stat-card danger">
+                    <div class="stat-header">
+                        <div class="stat-title">Uptime</div>
+                        <div class="stat-icon">⏱️</div>
+                    </div>
+                    <div class="stat-value">99.8%</div>
+                    <div class="stat-subtitle">
+                        <span class="trend-negative">↓ 0.1%</span> from last month
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="chart-grid">
+                <div class="chart-card large">
+                    <div class="chart-card-header">
+                        <div class="chart-title">User Activity</div>
+                        <div class="chart-actions">
+                            <div class="chart-range">Day</div>
+                            <div class="chart-range active">Week</div>
+                            <div class="chart-range">Month</div>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="activity-chart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card medium">
+                    <div class="chart-title">Command Distribution</div>
+                    <div class="chart-container">
+                        <canvas id="command-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="activity-container">
+                <div class="chart-title">Recent Activity</div>
+                <ul class="activity-list">
+                    <li class="activity-item">
+                        <div class="activity-icon activity-icon-success">🚀</div>
+                        <div class="activity-content">
+                            <div class="activity-header">
+                                <div class="activity-title">Bot joined new server: Crypto Enthusiasts</div>
+                                <div class="activity-time">10 minutes ago</div>
+                            </div>
+                            <div class="activity-description">Server ID: 123456789</div>
+                        </div>
+                    </li>
+                    <li class="activity-item">
+                        <div class="activity-icon activity-icon-warning">⚠️</div>
+                        <div class="activity-content">
+                            <div class="activity-header">
+                                <div class="activity-title">Error detected in music playback module</div>
+                                <div class="activity-time">43 minutes ago</div>
+                            </div>
+                            <div class="activity-description">Error code: 500</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
